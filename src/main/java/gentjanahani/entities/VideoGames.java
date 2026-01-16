@@ -8,7 +8,7 @@ public class VideoGames extends AllGames {
     private Genere genere;
 
     //COSTRUTTORI
-    public VideoGames(long idGame, String title, LocalDate annoDiPubblicazione, Double price, Piattaforma piattaforma, Genere genere) {
+    public VideoGames(String title, LocalDate annoDiPubblicazione, Double price, Piattaforma piattaforma, Genere genere) {
         super(title, annoDiPubblicazione, price);
         this.piattaforma = piattaforma;
         this.genere = genere;

@@ -8,7 +8,7 @@ public class BoardGames extends AllGames {
     private int durataInMin;
 
     //COSTRUTTORI
-    public BoardGames(long idGame, String title, LocalDate annoDiPubblicazione,
+    public BoardGames(String title, LocalDate annoDiPubblicazione,
                       Double price, int numeroGiocatori, int durataInMin) {
         super(title, annoDiPubblicazione, price);
 
