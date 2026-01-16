@@ -61,13 +61,14 @@ public class Application {
         //aggiorna gioco
         System.out.println("Inserisci l'ID del gioco che vuoi aggiornare");
         long inputAggiorna = scanner.nextLong();
+        scanner.nextLine();
         AllGames daAggiornare = collezione.cercaPerId(inputAggiorna);
 
         if (daAggiornare == null) {
             System.out.println("ID non trovato.");
             return;
         }
-
+        AllGames aggiornato = null;
         if (daAggiornare instanceof BoardGames) {
             //aggiorna BoardGame
             System.out.println("Titolo: ");
@@ -81,7 +82,7 @@ public class Application {
             System.out.println("Durata partita in min: ");
             int durata = scanner.nextInt();
 
-            BoardGames aggiornato = new BoardGames(titolo, data, prezzo, giocatori, durata);
+            aggiornato = new BoardGames(titolo, data, prezzo, giocatori, durata);
         } else if (daAggiornare instanceof VideoGames) {
             //aggiorna video game
             System.out.println("Titolo: ");
@@ -95,10 +96,11 @@ public class Application {
             System.out.println("Genere ( ACTION, FOOTBALL, ROLEPLAYING, ALTRO ): ");
             Genere genere = Genere.valueOf(scanner.nextLine().toUpperCase());
 
-            VideoGames aggiornato = new VideoGames(titolo, data, prezzo, piattaforma, genere);
+            aggiornato = new VideoGames(titolo, data, prezzo, piattaforma, genere);
         }
-
-
+        boolean giocoAggiornato = collezione.aggiornaConId(inputAggiorna, aggiornato);
+        if (giocoAggiornato) System.out.println("Gioco aggiornato con successo!");
+        else System.out.println("Errore durante l'aggiornaamento");
         //statistiche
         collezione.statistiche();
     }
