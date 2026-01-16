@@ -17,7 +17,7 @@ public class Application {
         BoardGames carteUno = new BoardGames("Uno", LocalDate.of(2002, 2, 10), 5.99, 10, 20);
         BoardGames monopoly = new BoardGames("Monopoly", LocalDate.of(1963, 3, 10), 35.5, 8, 90);
         BoardGames ilGiocoDellOca = new BoardGames("Il gioco dell'oca", LocalDate.of(1993, 10, 18), 10.99, 5, 30);
-        VideoGames finalFantasy = new VideoGames("Final Fantasy", LocalDate.of(2005, 12, 06), 26.7, Piattaforma.PC, Genere.RolePLaying);
+        VideoGames finalFantasy = new VideoGames("Final Fantasy", LocalDate.of(2005, 12, 06), 26.7, Piattaforma.PC, Genere.ROLEPLAYING);
         VideoGames fifa = new VideoGames("Fifa", LocalDate.of(2001, 07, 06), 40.7, Piattaforma.PS5, Genere.FOOTBALL);
         VideoGames theLastOfUs = new VideoGames("The Last Of Us", LocalDate.of(2005, 12, 06), 23.7, Piattaforma.XBOX, Genere.ACTION);
         VideoGames superMario = new VideoGames("Super Mario", LocalDate.of(1997, 12, 06), 26.7, Piattaforma.NINTENDO, Genere.ALTRO);
@@ -60,8 +60,43 @@ public class Application {
 
         //aggiorna gioco
         System.out.println("Inserisci l'ID del gioco che vuoi aggiornare");
-long inputAggiorna= scanner.nextLong();
-boolean aggiorna= collezione.aggiornaConId(inputAggiorna,);
+        long inputAggiorna = scanner.nextLong();
+        AllGames daAggiornare = collezione.cercaPerId(inputAggiorna);
+
+        if (daAggiornare == null) {
+            System.out.println("ID non trovato.");
+            return;
+        }
+
+        if (daAggiornare instanceof BoardGames) {
+            //aggiorna BoardGame
+            System.out.println("Titolo: ");
+            String titolo = scanner.nextLine();
+            System.out.println("Data publicazione(YYYY-MM-DD): ");
+            LocalDate data = LocalDate.parse(scanner.nextLine());
+            System.out.println("Nuovo prezzo: ");
+            double prezzo = scanner.nextDouble();
+            System.out.println("Numero giocatori (da 2 a 10): ");
+            int giocatori = scanner.nextInt();
+            System.out.println("Durata partita in min: ");
+            int durata = scanner.nextInt();
+
+            BoardGames aggiornato = new BoardGames(titolo, data, prezzo, giocatori, durata);
+        } else if (daAggiornare instanceof VideoGames) {
+            //aggiorna video game
+            System.out.println("Titolo: ");
+            String titolo = scanner.nextLine();
+            System.out.println("Data publicazione(YYYY-MM-DD): ");
+            LocalDate data = LocalDate.parse(scanner.nextLine());
+            System.out.println("Nuovo prezzo: ");
+            double prezzo = scanner.nextDouble();
+            System.out.println("Piattaforma  (PS5, XBOX,PC, ALTRO): ");
+            Piattaforma piattaforma = Piattaforma.valueOf(scanner.nextLine().toUpperCase());
+            System.out.println("Genere ( ACTION, FOOTBALL, ROLEPLAYING, ALTRO ): ");
+            Genere genere = Genere.valueOf(scanner.nextLine().toUpperCase());
+
+            VideoGames aggiornato = new VideoGames(titolo, data, prezzo, piattaforma, genere);
+        }
 
 
         //statistiche
