@@ -47,7 +47,16 @@ public class Collezione {
         return risultato;
     }
 
-    //
+    //Ricerca per numero di giocatori
+
+    public List<AllGames> cercaPerNumeroGiocatori(int giocatori) {
+        List<AllGames> risultato = giochi.stream()
+                .
+    }
+    //Rimuovere un elemento dato l'ID
+    //Aggiornare un elemento dato l'ID
+    //Statistiche della collezione: numero tot di giochi da tavolo e videogiochi,
+    //gioco con prezzo più alto, media dei prezzi.
 
     public List<AllGames> getGiochi() {
         return giochi;

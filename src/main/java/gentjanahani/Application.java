@@ -14,7 +14,6 @@ public class Application {
 
         Collezione collezione = new Collezione();
 
-
         BoardGames carteUno = new BoardGames("Uno", LocalDate.of(2002, 2, 10), 5.99, 10, 20);
         BoardGames monopoly = new BoardGames("Monopoly", LocalDate.of(1963, 3, 10), 35.5, 8, 90);
         BoardGames ilGiocoDellOca = new BoardGames("Il gioco dell'oca", LocalDate.of(1993, 10, 18), 10.99, 5, 30);
@@ -31,8 +30,8 @@ public class Application {
         collezione.aggiungiGioco(theLastOfUs);
         collezione.aggiungiGioco(superMario);
 
-
         System.out.println("Collezione di giochi:  " + collezione);
+
 
         //ricerca dei giochi con id
         System.out.println("cerca un gioco tramite ID.");
