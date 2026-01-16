@@ -43,18 +43,31 @@ public class Collezione {
         List<AllGames> risultato = giochi.stream()
                 .filter(g -> g.getPrice() <= price)
                 .toList();
-        if (risultato.isEmpty()) System.out.println("Nessun gioco trovato sotto " + price + " €");
+        if (risultato.isEmpty()) System.out.println("Nessun gioco trovato sotto: " + price + " €");
         return risultato;
     }
 
     //Ricerca per numero di giocatori
 
-    public List<AllGames> cercaPerNumeroGiocatori(int giocatori) {
-        List<AllGames> risultato = giochi.stream()
-                .
+    public List<BoardGames> cercaPerNumeroGiocatori(int giocatori) {
+        List<BoardGames> risultato = giochi.stream()
+                .filter(g -> g instanceof BoardGames)
+                .map(g -> (BoardGames) g)
+                .filter(bg -> bg.getNumeroGiocatori() == giocatori)
+                .toList();
+        if (risultato.isEmpty()) System.out.println("Nessun gioco trovato");
+        return risultato;
     }
+
     //Rimuovere un elemento dato l'ID
+    public boolean rimuoviConId(long id) {
+        return giochi.removeIf(g -> g.getIDGame() == id);
+
+    }
+
     //Aggiornare un elemento dato l'ID
+    
+
     //Statistiche della collezione: numero tot di giochi da tavolo e videogiochi,
     //gioco con prezzo più alto, media dei prezzi.
 

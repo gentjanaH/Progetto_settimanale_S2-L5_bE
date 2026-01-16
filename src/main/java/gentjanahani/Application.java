@@ -43,6 +43,21 @@ public class Application {
         System.out.println("Filtra per prezzo");
         Double inputPrezzo = scanner.nextDouble();
         List<AllGames> risulatiPerPrezzo = collezione.cercaPerPrezzo(inputPrezzo);
-        System.out.println("Risultati: " + risulatiPerPrezzo);
+        System.out.println(risulatiPerPrezzo.size() + " " + "Risultati: " + risulatiPerPrezzo);
+
+        //ricerca per numero giocatori
+        System.out.println("Filtra la ricerca per numero giocatori. Inserisci un numero da 2 a 10.");
+        int inputGiocatori = scanner.nextInt();
+        List<BoardGames> risultatiPerGiocatori = collezione.cercaPerNumeroGiocatori(inputGiocatori);
+        System.out.println(risultatiPerGiocatori.size() + " " + "Risultati: " + risultatiPerGiocatori);
+
+        //elimina un gioco
+        System.out.println("Inserisci l'ID del gioco da eliminare.");
+        int inputElimina = scanner.nextInt();
+        boolean elimina = collezione.rimuoviConId(inputElimina);
+        if (elimina) System.out.println("Gioco rimosso con successo.");
+        else System.out.println("Non ho trovato nessun gioco con questo Id.");
+
+
     }
 }
