@@ -22,26 +22,40 @@ public abstract class AllGames {
 
     //METODI
 
+    public static void setCounter(long counter) {
+        AllGames.counter = counter;
+    }
 
     //GETTER
     public LocalDate getAnnoDiPubblicazione() {
         return annoDiPubblicazione;
     }
 
+    public void setAnnoDiPubblicazione(LocalDate annoDiPubblicazione) {
+        this.annoDiPubblicazione = annoDiPubblicazione;
+    }
+
     public long getIDGame() {
         return idGame;
     }
 
+    //SETTER
+
     public Double getPrice() {
         return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public String getTitle() {
         return title;
     }
 
-    //SETTER
-
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public void setIdGame(long idGame) {
         this.idGame = idGame;

@@ -58,6 +58,15 @@ public class Application {
         if (elimina) System.out.println("Gioco rimosso con successo.");
         else System.out.println("Non ho trovato nessun gioco con questo Id.");
 
+        //aggiorna gioco
+        System.out.println("Inserisci l'ID del gioco che vuoi aggiornare");
+long inputAggiorna= scanner.nextLong();
+boolean aggiorna= collezione.aggiornaConId(inputAggiorna,);
 
+
+        //statistiche
+        collezione.statistiche();
     }
+
+
 }

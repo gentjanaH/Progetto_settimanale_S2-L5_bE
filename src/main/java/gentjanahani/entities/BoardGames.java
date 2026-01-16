@@ -30,10 +30,17 @@ public class BoardGames extends AllGames {
 
     }
 
+    public void setNumeroGiocatori(int numeroGiocatori) {
+        this.numeroGiocatori = numeroGiocatori;
+    }
+//SETTER
+
     public int getDurataInMin() {
 
         return durataInMin;
     }
 
-
+    public void setDurataInMin(int durataInMin) {
+        this.durataInMin = durataInMin;
+    }
 }

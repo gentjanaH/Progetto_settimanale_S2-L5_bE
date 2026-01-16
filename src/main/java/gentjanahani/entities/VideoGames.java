@@ -15,5 +15,22 @@ public class VideoGames extends AllGames {
     }
     //METODI
 
+    //GETTER E SETTER
 
+
+    public Genere getGenere() {
+        return genere;
+    }
+
+    public void setGenere(Genere genere) {
+        this.genere = genere;
+    }
+
+    public Piattaforma getPiattaforma() {
+        return piattaforma;
+    }
+
+    public void setPiattaforma(Piattaforma piattaforma) {
+        this.piattaforma = piattaforma;
+    }
 }
