@@ -9,7 +9,7 @@ public class VideoGames extends AllGames {
 
     //COSTRUTTORI
     public VideoGames(long idGame, String title, LocalDate annoDiPubblicazione, Double price, Piattaforma piattaforma, Genere genere) {
-        super(idGame, title, annoDiPubblicazione, price);
+        super(title, annoDiPubblicazione, price);
         this.piattaforma = piattaforma;
         this.genere = genere;
     }

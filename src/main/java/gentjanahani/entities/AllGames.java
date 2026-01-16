@@ -3,6 +3,9 @@ package gentjanahani.entities;
 import java.time.LocalDate;
 
 public abstract class AllGames {
+
+    private static long counter = 1;
+
     //ATTRIBUTI COMUNI
     private long idGame;
     private String title;
@@ -10,12 +13,14 @@ public abstract class AllGames {
     private Double price;
 
     //COSTRUTTORI
-    public AllGames(long idGame, String title, LocalDate annoDiPubblicazione, Double price) {
-        this.idGame = idGame;
+    public AllGames(String title, LocalDate annoDiPubblicazione, Double price) {
+        this.idGame = counter++;
         this.title = title;
         this.annoDiPubblicazione = annoDiPubblicazione;
         this.price = price;
     }
+
+    //METODI
 
 
     //GETTER
@@ -35,11 +40,18 @@ public abstract class AllGames {
         return title;
     }
 
+    //SETTER
+
+
+    public void setIdGame(long idGame) {
+        this.idGame = idGame;
+    }
+
     @Override
     public String toString() {
         return "AllGames{" +
                 "annoDiPubblicazione=" + annoDiPubblicazione +
-                ", IDGame=" + IDGame +
+                ", IDGame=" + idGame +
                 ", title='" + title + '\'' +
                 ", price=" + price +
                 '}';
